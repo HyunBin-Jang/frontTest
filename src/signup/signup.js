@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../login/login.css';
 import {useNavigate} from 'react-router-dom';
+
 function Signup() {
   const [id, setId] = useState('');
   const [username, setUsername] = useState('');
@@ -42,7 +43,7 @@ function Signup() {
 
       if (response.ok) {
         setSuccessMessage('회원가입이 성공적으로 완료되었습니다.');
-
+        navigate("/login")
       } else {
         setErrorMessage('회원가입에 실패했습니다.');
       }

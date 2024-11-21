@@ -7,6 +7,8 @@ const CheckList = ({ checklistId }) => {
     const [error, setError] = useState("");
     const [items, setItems] = useState([]);
     const [checklistInfo, setChecklistInfo] = useState(null);
+    const [showInput, setShowInput] = useState(false); // 입력 칸 표시 여부
+    const [newItem, setNewItem] = useState(""); // 새 준비물 값
 
     // API 호출로 체크리스트 데이터 가져오기
     useEffect(() => {
@@ -44,6 +46,24 @@ const CheckList = ({ checklistId }) => {
     // Add new item
     const addItem = (newItem) => {
 
+    };
+    const handleAddItem = async () => {
+        if (newItem.trim() === "") {
+            alert("준비물을 입력하세요!");
+            return;
+        }
+
+        try {
+            await axios.post(`/checklists/${checklistId}/items/add`, {
+                name: newItem,
+            });
+            // 준비물 리스트 업데이트
+            setItems((prevItems) => [...prevItems, newItem]);
+            setNewItem("");
+            setShowInput(false);
+        } catch (err) {
+            alert("준비물 추가에 실패했습니다.");
+        }
     };
 
     return (
@@ -87,17 +107,25 @@ const CheckList = ({ checklistId }) => {
                             </li>
                         ))}
                     </ul>
+                    {/* 추가 버튼 */}
                     <button
                         className="add-item"
-                        onClick={() => {
-                            const newItem = prompt("새 항목을 입력하세요:");
-                            if (newItem) {
-                                addItem(newItem);
-                            }
-                        }}
+                        onClick={() => setShowInput((prev) => !prev)}
                     >
                         + 추가
                     </button>
+                    {/* 입력 칸 및 확인 버튼 */}
+                    {showInput && (
+                        <div className="input-container">
+                            <input
+                                type="text"
+                                placeholder="준비물을 입력하세요"
+                                value={newItem}
+                                onChange={(e) => setNewItem(e.target.value)}
+                            />
+                            <button onClick={handleAddItem}>확인</button>
+                        </div>
+                    )}
             </div>
         </div>
     );

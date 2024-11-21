@@ -20,13 +20,12 @@ function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: "include", // 쿠키 포함
         body: JSON.stringify({ loginId: username, password: password }),
       });
 
       if (response.ok) {
         setSuccessMessage('로그인 성공');
-        navigate("/");
+        navigate("/")
       } else {
         setErrorMessage('잘못된 아이디 또는 비밀번호입니다.');
       }
