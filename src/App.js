@@ -9,6 +9,7 @@ import CalenPage from './calen/calen'
 import Menu1 from "./menu/menu1";
 import Menu2 from "./menu/menu2";
 import CheckList from "./check/check"
+import MyChecklist from "./list/mycheclist"
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/menu1" element={<Menu1 />} />
                     <Route path="/menu2" element={<Menu2 />} />
+                    <Route path="/mychecklist" element={<MyChecklist />} />
                     <Route path="/checklist/:checklistId" element={<CheckListWrapper />} />
                 </Routes>
         </Router>

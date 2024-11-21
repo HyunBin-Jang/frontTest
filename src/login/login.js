@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './login.css';
 
 function Login() {
@@ -7,6 +7,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ function Login() {
 
       if (response.ok) {
         setSuccessMessage('로그인 성공');
+        navigate("/")
       } else {
         setErrorMessage('잘못된 아이디 또는 비밀번호입니다.');
       }
