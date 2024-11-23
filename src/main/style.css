@@ -52,6 +52,16 @@ header h1 {
   color: #414141;
 }
 
+header .delete {
+  color: #0A62D0;
+  position: absolute; /* 절대 위치 지정 */
+  right: 25px; /* 오른쪽에서 25px 떨어진 위치 */
+  top: 50%; /* 세로 가운데 정렬 */
+  transform: translateY(-50%); /* 세로 가운데 정렬 보정 */
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+
+
 header .menu {
   width: 30px; /* 메뉴 아이콘 크기 */
   color: #0A62D0;
@@ -146,6 +156,9 @@ header .menu {
   display: flex;
   flex-wrap: wrap; /* 여러 줄로 배치 */
   gap: 25px; /* 리스트 간의 간격 */
+  flex-wrap: nowrap; /* 한 줄에만 정렬 (가로 스크롤) */
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  max-width: 100%; /* 부모 요소의 너비를 넘지 않음 */
 }
 
 .checklist-item {

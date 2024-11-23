@@ -68,7 +68,7 @@ const CheckList = ({ checklistId }) => {
 
     return (
         <div className="container">
-            <header>
+            <header className = "check-header">
                 <h1>{checklistInfo.city}</h1>
                 <p>{checklistInfo.departureDate} - {checklistInfo.arrivalDate}</p>
                 <div className="notice-box" onClick={() => window.open("https://example.com", "_blank")}>
