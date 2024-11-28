@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
-import styles from "./style.css";
+import "../style.css";
 
 function MainPage() {
     const navigate = useNavigate();
     const [checklists, setChecklists] = useState([]); // 체크리스트 정보 상태
     const limitedChecklists = checklists.slice(-3);
-
+    const [userId, setUserId] = useState(null);
     const popularPosts = [
         { id: 1, title: "첫 번째 인기 게시물" },
         { id: 2, title: "두 번째 인기 게시물" },
@@ -25,8 +25,6 @@ function MainPage() {
             navigate("/menu2");
         }
     };
-
-    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
             // 쿠키에서 userId 가져오기
@@ -73,12 +71,12 @@ function MainPage() {
               {/* 체크리스트 섹션 */}
               <div className="checklist-section">
                 {limitedChecklists.map((checklist, index) => (
-                  <div key={index} className="checklist-item">
+                  <div key={index} className="checklist-list">
                     <img src="/png/japan.png"alt="Japan" className="country-flag" />
                     <p>{checklist.destination.city}</p>
                   </div>
                 ))}
-                <div className="checklist-item add-checklist">
+                <div className="checklist-list add-checklist">
                   <a href="#checklist-create" className="add-button">
                     +
                   </a>

@@ -15,11 +15,12 @@ function Login() {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('/login', {
+      const response = await fetch(`/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: "include", // 쿠키 포함 요청
         body: JSON.stringify({ loginId: username, password: password }),
       });
 

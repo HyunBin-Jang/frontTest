@@ -58,7 +58,7 @@ const CheckList = () => {
                             <span>{`${checklist.departureDate} ~ ${checklist.arrivalDate}`}</span>
                         </div>
                     ))}
-                    <div className="add-checklist-card" onClick={() => (window.location.href = "/select1")}>
+                    <div className="add-checklist-card" onClick={() => (window.location.href = "/select")}>
                         <span>+</span>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import styles from "./style.css";
+import "../style.css";
 
 function Menu1({ onClose }) {
     const [userId, setUserId] = useState(null);
@@ -28,13 +28,20 @@ function Menu1({ onClose }) {
                 ) : (
                     <p>로그인이 필요합니다.</p>
                 )}
-                    <h3>
-                        <a href="/mychecklist">나의 체크리스트</a>
-                        <br />
-                        <a href="/board">게시판</a>
-                        <br />
-                        <a href="/mypage">마이페이지</a>
-                    </h3>
+                <h3>
+                    <a href="/mychecklist">나의 체크리스트</a>
+                    <br/>
+                    <br/>
+                    <a href="/board">게시판</a>
+                    <br/>
+                    <br/>
+                    <a href="/mypage">마이페이지</a>
+                    <br/>
+                    <br/>
+                    <a href="#">로그아웃</a>
+                    <br/>
+                    <br/>
+                </h3>
             </div>
         </div>
     );

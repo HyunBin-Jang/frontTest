@@ -46,15 +46,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap : 10px;
+    height: 200px; /* 헤더 높이 */
 }
-
-
-header h1 {
-    font-size: 28px;
-    color: #414141;
-    font-weight: 800;
-}
-
 
 
 form {
@@ -103,7 +97,14 @@ form h2 {
 }
 
 .checklist {
-    margin-top: 20px;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    overflow-y: auto;
+    width: 100%; /* 컨테이너 전체 너비 */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .checklist h2 {
@@ -111,6 +112,38 @@ form h2 {
     margin-bottom: 10px;
 }
 
+.checklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 버튼을 맨 오른쪽에 배치 */
+    width: 100%; /* 항목의 전체 너비 */
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.checklist-item label {
+    word-wrap: break-word; /* 긴 단어도 줄바꿈 처리 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    font-size: 16px; /* 텍스트 크기 */
+    flex: 1; /* 텍스트 영역을 확장 */
+    margin-left: 10px; /* 텍스트와 체크박스 간격 */
+    margin-right: 30px; /* 텍스트와 체크박스 간격 */
+}
+.delete-item
+{
+    border: none;
+    color: gray;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.delete-item:hover {
+    background-color: #0056b3;
+}
 .category h3 {
     font-size: 16px;
     cursor: pointer;
@@ -128,12 +161,6 @@ form h2 {
     margin-top: 5px;
 }
 
-.add-item {
-    background: none;
-    border: none;
-    color: gray;
-    cursor: pointer;
-}
 .hidden {
     display: none;
 }
@@ -229,4 +256,61 @@ h3 a {
   color: #414141; /* 원하는 색상으로 변경 (예: 파란색) */
   text-decoration: none; /* 밑줄 제거 */
   font-size: 20px; /* 텍스트 크기 조정 */
+}
+
+.recommend-button{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.recommend-button:hover{
+    background-color: #0056b3;
+}
+.recommendations-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%; /* 모달 너비 */
+    height: 50%; /* 모달 높이 */
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto; /* 내용이 많아질 경우 스크롤 추가 */
+}
+
+.recommendation-item {
+    display: flex; /* 아이템과 버튼을 같은 줄에 배치 */
+    justify-content: space-between; /* 항목과 버튼 간 공간 확보 */
+    align-items: center; /* 세로 정렬 */
+    margin-bottom: 10px; /* 항목 간 간격 */
+}
+
+.recommendation-item span {
+    flex: 1; /* 텍스트 영역 확장 */
+    font-size: 16px;
+}
+
+.recommendations-modal h2 {
+    margin-bottom: 15px;
+}
+
+.recommendations-modal ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations-modal button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
