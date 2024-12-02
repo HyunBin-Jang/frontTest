@@ -76,19 +76,19 @@ const CalenPage = () => {
       </header> */}
 
             <header className = "calen-header" style={{ display: "table", width: "100%" }}>
-  <span style={{ display: "table-cell", textAlign: "left", width: "10%" }}>
-    <img
-        src="/png/back.png"
-        alt="Back"
-        onClick={() => (window.location.href = "/back")}
-        style={{ width: "19.17px", height: "20px", cursor: "pointer" }}
-    />
-  </span>
-                <h1 style={{ display: "table-cell", textAlign: "center", fontSize: "21px", fontWeight: "800", color: "#414141" }}>
-                    새로운 체크리스트
-                </h1>
-                <span style={{ display: "table-cell", textAlign: "right", width: "10%" }}>
-    <img
+              <span style={{ display: "table-cell", textAlign: "left", width: "10%" }}>
+                <img
+                    src="/png/back.png"
+                    alt="Back"
+                    onClick={() => (window.location.href = "/back")}
+                    style={{ width: "19.17px", height: "20px", cursor: "pointer" }}
+                />
+              </span>
+                    <h1 style={{ display: "table-cell", textAlign: "center", fontSize: "21px", fontWeight: "800", color: "#414141" }}>
+                        새로운 체크리스트
+                    </h1>
+                    <span style={{ display: "table-cell", textAlign: "right", width: "10%" }}>
+                <img
         src="/png/delete.png"
         alt="Delete"
         onClick={() => (window.location.href = "/delete")}
@@ -96,8 +96,6 @@ const CalenPage = () => {
     />
   </span>
             </header>
-
-
             <div className="calen-container">
                 <form>
                     <h2>출발날짜와 도착날짜를 선택하세요.</h2>
